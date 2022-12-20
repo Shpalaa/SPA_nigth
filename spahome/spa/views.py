@@ -48,5 +48,9 @@ def certificate(request):
     return render(request, 'spa_ss/certificate.html')
 
 
+def Mountain_SPA(request):
+    return render(request, 'spa_ss/Mountain_spa.html')
+
+
 def Sea_SPA(request):
     return render(request, 'spa_ss/Sea_spa.html')

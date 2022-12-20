@@ -12,6 +12,7 @@ urlpatterns = [
     path('salons/', salons, name='salons'),
     path('contacts/', contacts, name='contacts'),
     path('certificate/', certificate, name='certificate'),
+    path('Mountain_SPA/', Mountain_SPA, name='Mountain_spa'),
     path('Sea_SPA/', Sea_SPA, name='Sea_spa'),
 
     # path('maps/', maps, name='maps'),
