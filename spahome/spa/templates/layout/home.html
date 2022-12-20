@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% extends 'layout/basic.html' %}
+{% load static %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+
+<a>Записаться</a>
+
+<hr>
+
+<a><center>Популярные процедуры</center></a>
+
+<hr>
+{% for bd in bds %}
+    {% if bd.popular == True %}
+        <img src="{{ bd.photo.url }}" alt="" width="200" height="200"/>
+        <h4>{{ bd.title }}</h4>
+        <h4>{{ bd.content }}</h4>
+        <h4>{{ bd.time }}</h4>
+        <h4>{{ bd.price }}</h4>
+    {% endif %}
+{% endfor %}
+
+<hr>
+
+{% for bd2 in bd_care %}
+    {% if bd2.popular == True %}
+        <img src="{{ bd2.photo.url }}" alt="" width="200" height="200"/>
+        <h4>{{ bd2.title }}</h4>
+        <h4>{{ bd2.content }}</h4>
+        <h4>{{ bd2.time }}</h4>
+        <h4>{{ bd2.price }}</h4>
+    {% endif %}
+{% endfor %}
+
+<hr>
+<div><center> Наши локации</center></div>
+<hr>
+
+{% for rp in rsp %}
+    {% if rp.MY_CHOICES == 'KP' %}
+        <img src="{{ rp.photo.url }}" alt="" width="200" height="200"/>
+        <h4>{{ rp.name }}</h4>
+        <h4>{{ rp.adress }}</h4>
+        <h4>{{ rp.title }}</h4>
+        <h4>{{ rp.number }}</h4>
+    {% endif %}
+{% endfor %}
+<hr>
+{% for rp in rsp %}
+    {% if rp.MY_CHOICES == 'PX' %}
+        <img src="{{ rp.photo.url }}" alt="" width="200" height="200"/>
+        <h4>{{ rp.name }}</h4>
+        <h4>{{ rp.adress }}</h4>
+        <h4>{{ rp.title }}</h4>
+        <h4>{{ rp.number }}</h4>
+    {% endif %}
+{% endfor %}
+<hr>
+{% for rp in rsp %}
+    {% if rp.MY_CHOICES == 'GZ' %}
+        <img src="{{ rp.photo.url }}" alt="" width="200" height="200"/>
+        <h4>{{ rp.name }}</h4>
+        <h4>{{ rp.adress }}</h4>
+        <h4>{{ rp.title }}</h4>
+        <h4>{{ rp.number }}</h4>
+    {% endif %}
+{% endfor %}
+
+<a href="{% url 'masters' %}"><center>Наши мастера</center></a>
+<hr>
+
+{% endblock %}
+
+

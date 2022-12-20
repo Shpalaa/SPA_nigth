@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends 'layout/basic.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Menu{% endblock %}</title>
+</head>
+<body>
+{% block content %}
+<h1>
+    <bold>SPA-Ритуалы</bold>
+</h1>
+<h2>Оздоровление, расслабление и обновление вашего тела</h2>
+
+{% for bd in bds %}
+<div>
+    <img src="{{ bd.photo.url }}" alt="" width="200" height="200"/>
+    <h2>{{ bd.title }}</h2>
+    <h2>{{ bd.content }}</h2>
+    <h2>{{ bd.time }}</h2>
+    <h2>{{ bd.price }}</h2>
+    <h2><button type="submit">Записаться</button></h2>
+</div>
+{% endfor %}
+
+<hr>
+
+{% for bd2 in bd_care %}
+<div>
+    <img src="{{ bd2.photo.url }}" alt="" width="200" height="200"/>
+    <h2>{{ bd2.title }}</h2>
+    <h2>{{ bd2.content }}</h2>
+    <h2>{{ bd2.time }}</h2>
+    <h2>{{ bd2.price }}</h2>
+    <h2><button type="submit">Записаться</button></h2>
+</div>
+{% endfor %}
+<hr>
+
+{%for file in files%}
+    {% if file.work == True %}
+
+<div></div><a href="{{ file.path.url }}" download><center>Скачать</center></a></div>
+
+    {% endif %}
+{%endfor%}
+<hr>
+<a href="{% url 'home'%}">Вернуться на главную</a>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends 'layout/basic.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Про Нас{% endblock %}</title>
+</head>
+<body>
+{% block content %}
+<a><center>Инфа про нас</center></a>
+<div><a href="{% url 'spa_menu' %}">Все процедуры</a></div>
+<hr>
+
+<hr>
+
+{% endblock %}
+</body>
+</html>

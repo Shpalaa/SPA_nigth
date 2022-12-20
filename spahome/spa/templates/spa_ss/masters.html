@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'layout/basic.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Мастера{% endblock %}</title>
+</head>
+<body>
+{% block content %}
+
+<a>Мастера</a>
+<div><a href="{% url 'qualifications' %}">Квалификации</a></div>
+{% endblock %}
+
+</body>
+</html>
