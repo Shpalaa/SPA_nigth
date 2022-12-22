@@ -42,7 +42,7 @@
 {%for file in files%}
     {% if file.work == True %}
 
-<div></div><a href="{{ file.path.url }}" download><center>Скачать</center></a></div>
+<div><a href="{{ file.path.url }}" download><center>Скачать</center></a></div>
 
     {% endif %}
 {%endfor%}

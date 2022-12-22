@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 
 
-class Rituals(models.Model):
+class Mountain_Rituals(models.Model):
     photo = models.ImageField(upload_to='static/photo/photo_rituals/', verbose_name='фото массажа')
     title = models.CharField(max_length=100, verbose_name='Заголовок')
     content = models.CharField(max_length=250, verbose_name='описание')
@@ -20,7 +20,7 @@ class Rituals(models.Model):
         return self.title
 
 
-class Body_care(models.Model):
+class Mountain_Body_care(models.Model):
     photo = models.ImageField(upload_to='static/photo/photo_care/', verbose_name='уходовое фото')
     title = models.CharField(max_length=100, verbose_name='Заголовок')
     content = models.CharField(max_length=250, verbose_name='описание')
@@ -65,9 +65,38 @@ class Sea_spa_BC(models.Model):
                                   verbose_name='Добавить на главную страницу сайта (популярные Процедуры)')
     time_create = models.DateTimeField(verbose_name="Время создания", default=datetime.now(), )
     time_update = models.DateTimeField(verbose_name="Время изменения", default=datetime.now(), )
+    new = models.BooleanField(default=False, verbose_name='Добавить в раздел "Новые процедуры" ')
 
     class Meta:
         verbose_name_plural = 'SEA-SPA (Уход за телом)'
+        verbose_name = 'SPA-ритуалы (Уход за телом)'
+
+
+class Town_SPA_RT(models.Model):
+    photo = models.ImageField(upload_to='static/photo/photo_care/', verbose_name='уходовое фото')
+    title = models.CharField(max_length=100, verbose_name='Заголовок')
+    content = models.CharField(max_length=250, verbose_name='описание')
+    time = models.CharField(max_length=50, null=True, blank=True, verbose_name='время в формате "X/X/X"')
+    price = models.CharField(max_length=50, null=False, blank=True, verbose_name='цена в формате "X/X/X"')
+    time_create = models.DateTimeField(verbose_name="Время создания", default=datetime.now(), )
+    time_update = models.DateTimeField(verbose_name="Время изменения", default=datetime.now(), )
+
+    class Meta:
+        verbose_name_plural = 'Town-SPA (Виды массажа)'
+        verbose_name = 'SPA-ритуалы (Вид массажа)'
+
+
+class Town_spa_BC(models.Model):
+    photo = models.ImageField(upload_to='static/photo/photo_care/', verbose_name='уходовое фото')
+    title = models.CharField(max_length=100, verbose_name='Заголовок')
+    content = models.CharField(max_length=250, verbose_name='описание')
+    time = models.CharField(max_length=50, null=True, blank=True, verbose_name='время в формате "X/X/X"')
+    price = models.CharField(max_length=50, null=False, blank=True, verbose_name='цена в формате "X/X/X"')
+    time_create = models.DateTimeField(verbose_name="Время создания", default=datetime.now(), )
+    time_update = models.DateTimeField(verbose_name="Время изменения", default=datetime.now(), )
+
+    class Meta:
+        verbose_name_plural = 'Town-SPA (Уход за телом)'
         verbose_name = 'SPA-ритуалы (Уход за телом)'
 
 
@@ -77,14 +106,13 @@ class Save_menu(models.Model):
                             help_text='Это может быть только zip-файл')
     work = models.BooleanField(default=False,
                                verbose_name='Поставте галочку для того, что бы меню стало активным(возможен только один вариант!)')
-    title = models.CharField(max_length=50, default=None, blank=True, null=True)
+    title = models.CharField(max_length=50, default=None, blank=True, null=True, verbose_name='Название Меню')
     time_create = models.DateTimeField(verbose_name="Время создания", default=datetime.now(), )
     time_update = models.DateTimeField(verbose_name="Время изменения", default=datetime.now(), )
 
     class Meta:
         verbose_name_plural = 'Файл меню для загрузки пользователям'
         verbose_name = 'Файл меню для загрузки пользователям'
-        # ordering = ['-create']
 
 
 class Plase(models.Model):

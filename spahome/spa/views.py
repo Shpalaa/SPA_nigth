@@ -9,19 +9,19 @@ def index(request):
 
 
 def home(request):
-    bds = Rituals.objects.all()
-    bd_care = Body_care.objects.all()
+    bds = Mountain_Rituals.objects.all()
+    bd_care = Mountain_Body_care.objects.all()
     rsp = Plase.objects.all()
     context = {'bds': bds, 'bd_care': bd_care, 'rsp': rsp}
     return render(request, 'layout/home.html', context)
 
 
-def spa_menu(request):
-    bds = Rituals.objects.all()
-    bd_care = Body_care.objects.all()
+def Mountain_spa_menu(request):
+    bds = Mountain_Rituals.objects.all()
+    bd_care = Mountain_Body_care.objects.all()
     files = Save_menu.objects.all()
     context = {'bds': bds, 'bd_care': bd_care, 'files': files}
-    return render(request, 'spa_ss/spa_menu.html', context)
+    return render(request, 'spa_ss/Mountain_spa_menu.html', context)
 
 
 def about_us(request):
@@ -48,8 +48,11 @@ def certificate(request):
     return render(request, 'spa_ss/certificate.html')
 
 
-def Mountain_SPA(request):
-    return render(request, 'spa_ss/Mountain_spa.html')
+def Town_SPA(request):
+    bd_bc = Town_spa_BC.objects.all()
+    bd_rt = Town_SPA_RT.objects.all()
+    context = {'bd_bc': bd_bc, 'bd_rt': bd_rt}
+    return render(request, 'spa_ss/Town_spa.html', context)
 
 
 def Sea_SPA(request):
