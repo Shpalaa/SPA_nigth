@@ -12,11 +12,31 @@
 
     <a>Скидка 10% на следующую процедуру</a>
 
+    <center><a>Наши ритуалы</a></center>
+    {% for bd_rts in bd_rt %}
+    <div>
+        <img src="{{ bd_rts.photo.url }}" alt="" width="200" height="200"/>
+    <h2>{{ bd_rts.title }}</h2>
+    <h2>{{ bd_rts.content }}</h2>
+    <h2>{{ bd_rts.time }}</h2>
+    <h2>{{ bd_rts.price }}</h2>
+    <h2><button type="submit">Записаться</button></h2>
+    </div>
+    {% endfor %}
+
     <hr>
 
-
-
-    <div><a>БД Уход за телом</a></div>
+        <center><a>Уход за телом</a></center>
+    {% for bd_bcs in bd_bc %}
+    <div>
+        <img src="{{ bd_bcs.photo.url }}" alt="" width="200" height="200"/>
+    <h2>{{ bd_bcs.title }}</h2>
+    <h2>{{ bd_bcs.content }}</h2>
+    <h2>{{ bd_bcs.time }}</h2>
+    <h2>{{ bd_bcs.price }}</h2>
+    <h2><button type="submit">Записаться</button></h2>
+    </div>
+    {% endfor %}
 
     <hr>
 
@@ -30,7 +50,6 @@
     <a href="url {{ masters }}">Наши мастера</a>
 
     <hr>
-    <div>Сделать слева инфу про расположение</div>
     <div>Сделать слева инфу про расположение</div>
 
     <script type="text/javascript" charset="utf-8" async
