@@ -49,11 +49,14 @@ def certificate(request):
 
 
 def Town_SPA(request):
-    bd_bc = Town_spa_BC.objects.all()
     bd_rt = Town_SPA_RT.objects.all()
+    bd_bc = Town_spa_BC.objects.all()
     context = {'bd_bc': bd_bc, 'bd_rt': bd_rt}
     return render(request, 'spa_ss/Town_spa.html', context)
 
 
 def Sea_SPA(request):
-    return render(request, 'spa_ss/Sea_spa.html')
+    bd_rt = Sea_SPA_RT.objects.all()
+    bd_bc = Sea_spa_BC.objects.all()
+    context = {'bd_bc': bd_bc, 'bd_rt': bd_rt}
+    return render(request, 'spa_ss/Sea_spa.html', context)

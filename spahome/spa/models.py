@@ -41,12 +41,13 @@ class Mountain_Body_care(models.Model):
 
 
 class Sea_SPA_RT(models.Model):
-    photo = models.ImageField(upload_to='static/photo/photo_care/', verbose_name='уходовое фото')
+    photo = models.ImageField(upload_to='static/photo/photo_rituals/', verbose_name='уходовое фото')
     title = models.CharField(max_length=100, verbose_name='Заголовок')
     content = models.CharField(max_length=250, verbose_name='описание')
     time = models.CharField(max_length=50, null=True, blank=True, verbose_name='время в формате "X/X/X"')
     price = models.CharField(max_length=50, null=False, blank=True, verbose_name='цена в формате "X/X/X"')
-    popular = models.BooleanField(default=False, verbose_name='Добавить на главную страницу сайта (популярные массажи)')
+    new = models.BooleanField(default=False, verbose_name='Добавить в раздел "Новые процедуры" ')
+    view = models.BooleanField(default=False, verbose_name='Отображать в общем меню меню')
     time_create = models.DateTimeField(verbose_name="Время создания", default=datetime.now(), )
     time_update = models.DateTimeField(verbose_name="Время изменения", default=datetime.now(), )
 
@@ -61,11 +62,11 @@ class Sea_spa_BC(models.Model):
     content = models.CharField(max_length=250, verbose_name='описание')
     time = models.CharField(max_length=50, null=True, blank=True, verbose_name='время в формате "X/X/X"')
     price = models.CharField(max_length=50, null=False, blank=True, verbose_name='цена в формате "X/X/X"')
-    popular = models.BooleanField(default=False,
-                                  verbose_name='Добавить на главную страницу сайта (популярные Процедуры)')
+    new = models.BooleanField(default=False, verbose_name='Добавить в раздел "Новые процедуры" ')
+    view = models.BooleanField(default=True, verbose_name='Отображать в общем меню')
     time_create = models.DateTimeField(verbose_name="Время создания", default=datetime.now(), )
     time_update = models.DateTimeField(verbose_name="Время изменения", default=datetime.now(), )
-    new = models.BooleanField(default=False, verbose_name='Добавить в раздел "Новые процедуры" ')
+
 
     class Meta:
         verbose_name_plural = 'SEA-SPA (Уход за телом)'
@@ -73,7 +74,7 @@ class Sea_spa_BC(models.Model):
 
 
 class Town_SPA_RT(models.Model):
-    photo = models.ImageField(upload_to='static/photo/photo_care/', verbose_name='уходовое фото')
+    photo = models.ImageField(upload_to='static/photo/photo_rituals/', verbose_name='уходовое фото')
     title = models.CharField(max_length=100, verbose_name='Заголовок')
     content = models.CharField(max_length=250, verbose_name='описание')
     time = models.CharField(max_length=50, null=True, blank=True, verbose_name='время в формате "X/X/X"')

@@ -6,23 +6,45 @@
 {% block content %}
 <hr>
 
-<center><a>Записаться</a>
+<a>Записаться</a>
 
     <hr>
 
     <a>Сделать как переход по странице вниз (как лендинг)"ВСЕ ПРОЦЕДУРЫ"</a>
 
     <hr>
+<center><a>Новые процедуры</a></center>
 
-    <a> сделать БД "новые процедуры"</a>
+    {% for bd_bcs in bd_bc %}
+        {% if bd_bcs.new == True %}
+            <img src="{{ bd_bcs.photo.url }}" alt="" width="200" height="200"/>
+            <h2>{{ bd_bcs.title }}</h2>
+            <h2>{{ bd_bcs.content }}</h2>
+            <h2>{{ bd_bcs.time }}</h2>
+            <h2>{{ bd_bcs.price }}</h2>
+            <h2><button type="submit">Записаться</button></h2>
+
+        {% endif %}
+    {% endfor %}
+
+    {% for bd_rts in bd_rt %}
+        {% if bd_rts.new == True %}
+            <img src="{{ bd_rts.photo.url }}" alt="" width="200" height="200"/>
+            <h2>{{ bd_rts.title }}</h2>
+            <h2>{{ bd_rts.content }}</h2>
+            <h2>{{ bd_rts.time }}</h2>
+            <h2>{{ bd_rts.price }}</h2>
+            <h2><button type="submit">Записаться</button></h2>
+
+        {% endif %}
+    {% endfor %}
+
 
     <hr>
 
     <a>Сделать как переход по странице вниз (как лендинг) "ВСЕ ПРОЦЕДУРЫ"</a>
 
     <hr>
-
-    <a>вставить карту</a>
 
     <script type="text/javascript" charset="utf-8" async
             src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Abb27f5f3213c69d0206b3a44717aec8f55e5bce7b2f59dcd2659952958d81220&amp;width=903&amp;height=635&amp;lang=ru_RU&amp;scroll=true"></script>
@@ -32,12 +54,34 @@
     <a>инфа про мастеров</a>
     <a href="url {{ masters }}">Наши мастера</a>
 
-    <hr>
+<hr>
+        <center><a>Все виды услуг</a></center>
 
-    <div>работа с бд</div>
-    <a>SPA-ритуалы</a>
+    {% for bd_bcs in bd_bc %}
+        {% if bd_bcs.view == True %}
+            <img src="{{ bd_bcs.photo.url }}" alt="" width="200" height="200"/>
+            <h2>{{ bd_bcs.title }}</h2>
+            <h2>{{ bd_bcs.content }}</h2>
+            <h2>{{ bd_bcs.time }}</h2>
+            <h2>{{ bd_bcs.price }}</h2>
+            <h2><button type="submit">Записаться</button></h2>
+        {% endif %}
+    {% endfor %}
+
+<hr>
     <div><a>уход за телом</a></div>
 
+    {% for bd_rts in bd_rt %}
+        {% if bd_rts.view == True %}
+            <img src="{{ bd_rts.photo.url }}" alt="" width="200" height="200"/>
+            <h2>{{ bd_rts.title }}</h2>
+            <h2>{{ bd_rts.content }}</h2>
+            <h2>{{ bd_rts.time }}</h2>
+            <h2>{{ bd_rts.price }}</h2>
+            <h2><button type="submit">Записаться</button></h2>
 
-</center>
+        {% endif %}
+    {% endfor %}
+
+
 {% endblock %}

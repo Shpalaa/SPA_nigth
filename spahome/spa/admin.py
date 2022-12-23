@@ -24,13 +24,13 @@ class Mountain_Body_careAdmin(admin.ModelAdmin):
 
 @admin.register(Sea_spa_BC)
 class Sea_spa_BCAdmin(admin.ModelAdmin):
-    list_display = ("title", 'time_create', 'new', 'time_update',)
+    list_display = ("title", 'time_create', 'new', 'view', 'time_update',)
     readonly_fields = ('time_create', 'time_update')
 
 
 @admin.register(Sea_SPA_RT)
 class Sea_SPA_RTAdmin(admin.ModelAdmin):
-    list_display = ("title", "popular",)
+    list_display = ("title", 'time_create', 'new', 'view', 'time_update',)
     readonly_fields = ('time_create', 'time_update')
 
 
